@@ -8,5 +8,6 @@ module.exports = class UserRoute {
 
     // Reading
     this.router.get(`/contacts/ping`, this.controller.ping);
+    this.router.get(`/contacts/sync/:report?`, this.controller.sync);
   }
 }

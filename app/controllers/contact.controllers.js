@@ -7,4 +7,9 @@ module.exports = class ContactController {
 
   ping = (req, res) => res.status(200).json(this.service.ping());
 
+  sync = async (req, res) => {
+    const {report} = req.params
+    const response = await this.service.sync(report);
+    return res.status(201).json(response);
+  }
 }
