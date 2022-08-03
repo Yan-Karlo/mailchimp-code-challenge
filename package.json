@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start" : "node app.js",
+    "start": "node app.js",
     "dev": "nodemon app"
   },
   "keywords": [],
@@ -14,7 +14,6 @@
     "@mailchimp/mailchimp_marketing": "^3.0.78",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.12.14"
   }

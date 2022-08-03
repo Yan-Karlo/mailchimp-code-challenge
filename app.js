@@ -1,8 +1,8 @@
-require('dotenv').config();
+const { listName, API_KEY } = require('./engines/config.json');
+process.env.API_KEY = API_KEY;
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const Server = require('./engines/server');
 const List = require('./entities/listClient.entity');
-const { listName } = require('./engines/config.json');
 
 class App {
   constructor() {
