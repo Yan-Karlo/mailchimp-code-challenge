@@ -1,13 +1,13 @@
-const { listName, API_KEY } = require('./engines/config.json');
-process.env.API_KEY = API_KEY;
+require('dotenv').config();
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const Server = require('./engines/server');
 const List = require('./entities/listClient.entity');
+const { listName } = require('./engines/config.json');
 
 class App {
   constructor() {
     this.server = new Server(3000);
-    this.list = new List();
+    this.list = new List(); 
   }
 
   async start() {
