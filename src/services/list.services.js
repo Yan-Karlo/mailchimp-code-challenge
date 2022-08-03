@@ -1,5 +1,5 @@
-const List = require('../../entities/ListClient.entity');
 const { listName } = require('../../engines/config.json');
+const List = require('../../entities/listClient.entity');
 const Response = require('../../entities/response.entity');
 
 module.exports = class ListService {
