@@ -8,15 +8,16 @@ module.exports = class Response {
 
   setError(error, contact = {}) {
     const err = JSON.parse(JSON.stringify(error, null, 4));
-    
+
     this.httpStatus = err.status;
     this.isError = true;
-    this.message = err.response.text;
+    this.message = err.response?.text || (err.name + ' ' + err.message);
+
     this.result = {
-      firstName: contact.firstName,
-      lastName : contact.lastName,
-      email: contact.email,
-    }
+      firstName: contact.firstName || 'N/A',
+      lastName: contact.lastName || 'N/A',
+      email: contact.email || 'N/A',
+    };
   }
 
   setResult(result) {

@@ -1,26 +1,31 @@
 const axios = require('axios').default;
-const ContactList = require('../../entities/contactList.entity');
-const queue = require('../../helpers/queue.helper')
+const Contact = require('../../entities/contactClient.entity');
+const queue = require('../../helpers/queue.helper');
+const Response = require('../../entities/response.entity');
 
 module.exports = class ContactService {
   constructor() {
-    this.contactList = new ContactList();
+    this.contactList = new Contact();
   }
 
   ping = () => "pong";
 
   sync = async (report) => {
+    var newContactList = [];
+    const response = new Response();
     const showErrors = report == null
         ? false
         : report.toLowerCase() === 'true'
           ? true
-          : false;
+        : false;
 
-    const newContactList = await axios
-        .get('https://613b9035110e000017a456b1.mockapi.io/api/v1/contacts')
-        .then(({ data }) => {
-          return data;
-        });
+    try {
+      newContactList = await
+        (await axios.get('https://613b9035110e000017a456b1.mockapi.io/api/v1/contacts')).data
+    } catch (error) {
+      response.setError(error);
+      return response;
+    }
 
     const tasks = newContactList.map(
         async contact => this.addContact({

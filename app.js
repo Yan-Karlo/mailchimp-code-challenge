@@ -1,7 +1,7 @@
 require('dotenv').config();
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const Server = require('./engines/server');
-const List = require('./entities/list.entity');
+const List = require('./entities/listClient.entity');
 const { listName } = require('./engines/config.json');
 
 class App {

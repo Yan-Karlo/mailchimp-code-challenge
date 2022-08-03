@@ -1,9 +1,12 @@
+const Response = require('../entities/response.entity');
+
 exports.enqueue = async (tasks, queueSize) => {
-  const response = await execute(tasks, queueSize);
-  return response;
+  const result = await execute(tasks, queueSize);
+  return result;
 }
 
 execute = async (tasks, queueSize) => {
+  const response = new Response();
   var processed = [];
   var rounds = Math.ceil(tasks.length / queueSize);
 

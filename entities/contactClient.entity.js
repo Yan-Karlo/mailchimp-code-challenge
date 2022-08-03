@@ -3,10 +3,10 @@ const clientConfig = {
   apiKey: process.env.API_KEY,
   server: process.env.API_KEY.split('-')[1],
 }
-const Response = require('../entities/response.entity');
+const Response = require('./response.entity');
 
 
-module.exports = class ContactList {
+module.exports = class ContactClient {
   constructor() {
     this.client = client;
     this.client.setConfig(clientConfig);

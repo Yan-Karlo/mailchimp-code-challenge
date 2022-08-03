@@ -5,7 +5,7 @@ const clientConfig = {
   server: process.env.API_KEY.split('-')[1],
 }
 
-module.exports = class List {
+module.exports = class ListClient {
   constructor() {
     this.client = client;
     this.client.setConfig(clientConfig);

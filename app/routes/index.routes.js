@@ -1,4 +1,5 @@
 const ContactRoute = require('./v1/contact.routes');
+const ListRoute = require('./v1/list.routes');
 
 module.exports = class IndexRoute {
   constructor(router) {
@@ -8,6 +9,7 @@ module.exports = class IndexRoute {
 
   Initialize() {
     new ContactRoute(this);
+    new ListRoute(this);
 
     return this.router;
   }

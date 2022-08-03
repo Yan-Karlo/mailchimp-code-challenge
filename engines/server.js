@@ -7,7 +7,7 @@ const IndexRouter = require('../app/routes/index.routes');
 module.exports = class Server {
 
   constructor(port) {
-    this.port = port || 3000;
+    this.port = process.env.PORT || 3000;
     this.isRunning = false;
     this.app = express();
     this.router = express.Router();
@@ -20,7 +20,7 @@ module.exports = class Server {
   }
 
   start = () => {
-    this.engine.listen(this.port, console.log(`Listening on http://localhost:${this.port}`));
+    this.engine.listen(this.port, console.info(`Listening on http://localhost:${this.port}`));
     this.isRunning = true;
   }
 
