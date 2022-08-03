@@ -14,9 +14,11 @@ execute = async (tasks, queueSize) => {
     var partial = tasks.slice(r * queueSize, (r * queueSize) + queueSize);
     const results = await Promise.all([...partial]).then(result => {
       return result;
-    }).catch(err =>
-      console.log(err)
-    )
+    })
+      .catch(error => {
+        response.setError(error)
+        return response;
+      })
 
     processed = [...processed, ...results]
   }

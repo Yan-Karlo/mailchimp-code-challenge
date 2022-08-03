@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const httpServer = require('http');
-const IndexRouter = require('../app/routes/index.routes');
+const IndexRouter = require('../src/routes/index.routes');
 
 module.exports = class Server {
 
