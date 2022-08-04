@@ -8,7 +8,6 @@ module.exports = class Response {
 
   setError(error, contact = {}) {
     const err = JSON.parse(JSON.stringify(error, null, 4));
-    console.log(err);
     const {
       response: {
         text = (err.name + ' ' + err.message)

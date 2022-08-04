@@ -6,7 +6,6 @@ module.exports = class UserRoute {
     this.controller = new ContactController();
     this.router = router.router;
 
-    // Reading
     this.router.get(`/contacts/ping`, this.controller.ping);
     this.router.get(`/contacts/sync/:report?`, this.controller.sync);
   }
