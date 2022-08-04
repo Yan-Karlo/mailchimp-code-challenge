@@ -9,6 +9,18 @@ module.exports = class ListService {
 
   ping = () => "pong";
 
+  init = async () =>{
+    const response = new Response()
+    try {
+      await this.list.init(listName);
+      response.result = {newListId : process.env.LIST_ID}
+    } catch (error) {
+      response.setError(error);
+    }
+
+    return response;
+  }
+
   remove = async () => {
     const response = new Response()
 

@@ -1,11 +1,14 @@
 const axios = require('axios').default;
-const Contact = require('../../entities/contactClient.entity');
+const ContactClient = require('../../entities/contactClient.entity');
+const ListClient = require('../../entities/listClient.entity')
 const queue = require('../../helpers/queue.helper');
 const Response = require('../../entities/response.entity');
+const { listName } = require('../../engines/config.json');
 
 module.exports = class ContactService {
   constructor() {
-    this.contactList = new Contact();
+    this.contactList = new ContactClient();
+    this.ListClient = new ListClient();
   }
 
   ping = () => "pong";
@@ -35,6 +38,9 @@ module.exports = class ContactService {
         }));
 
     const queueSize = 5;
+    
+    var existList = false;
+
     const queueResult = await queue.enqueue(tasks, queueSize);
 
     /*

@@ -8,6 +8,7 @@ module.exports = class ListRoute {
 
     // Reading
     this.router.get(`/lists/ping`, this.controller.ping);
+    this.router.get(`/lists/init`, this.controller.init);
     this.router.delete(`/lists`, this.controller.remove);
   }
 }
